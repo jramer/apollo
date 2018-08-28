@@ -22,7 +22,8 @@ Package.onUse(function(api) {
   api.use('cultofcoders:grapher-schema-directives@0.1.8');
   api.use('accounts-base', { weak: true });
 
-  api.mainModule('client/index.js', 'client');
+  // Remove client integration as we use Blaze and not React. Also only for mobile api for now.
+  // api.mainModule('client/index.js', 'client');
   api.mainModule('server/index.js', 'server');
 });
 
@@ -41,5 +42,5 @@ Package.onTest(function(api) {
   api.use(packages);
 
   api.mainModule('__tests__/server.js', 'server');
-  api.mainModule('__tests__/client.js', 'client');
+  // api.mainModule('__tests__/client.js', 'client');
 });
