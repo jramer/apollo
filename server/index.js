@@ -1,10 +1,11 @@
 import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
 import { load } from 'graphql-load';
 import { db } from 'meteor/cultofcoders:grapher';
-import getRenderer from './ssr';
+// import getRenderer from './ssr';
 
 import './scalars';
 import './types';
+
 export { default as Config } from './config';
 export { getUserForContext } from './core/users';
 export { default as initialize } from './initialize';
