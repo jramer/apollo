@@ -1,6 +1,6 @@
 Package.describe({
   name: 'cultofcoders:apollo',
-  version: '0.7.8',
+  version: '0.9.3',
   // Brief, one-line summary of the package.
   summary: 'Meteor & Apollo integration',
   // URL to the Git repository containing the source code for this package.
@@ -18,7 +18,7 @@ Package.onUse(function(api) {
   api.use('mongo');
 
   api.use('tmeasday:check-npm-versions@0.3.2');
-  api.use('cultofcoders:grapher@1.3.7_4');
+  api.use('cultofcoders:grapher@1.3.13');
   api.use('cultofcoders:grapher-schema-directives@0.1.8');
   api.use('accounts-base', { weak: true });
 
@@ -27,17 +27,21 @@ Package.onUse(function(api) {
   api.mainModule('server/index.js', 'server');
 });
 
+Npm.depends({
+  cookie: '0.4.0',
+});
+
 Package.onTest(function(api) {
   api.use('cultofcoders:apollo');
 
   var packages = [
     'ecmascript',
-    'cultofcoders:mocha',
-    'practicalmeteor:chai',
     'accounts-password',
-    'cultofcoders:apollo-accounts',
+    'cultofcoders:apollo-accounts@3.4.0',
     'mongo',
   ];
+
+  api.use(['meteortesting:mocha']);
 
   api.use(packages);
 

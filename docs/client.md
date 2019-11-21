@@ -58,7 +58,17 @@ Initialize accepts as an argument a configuration object:
 
 ```js
 initialize({
-  disableWebsockets: false, // Whether or not to try to connect to websockets, it connects by default
+  // Allow custom URI, rather than Meteor.absoluteUrl()
+  uri: 'http://endpoint:5000/graphql',
+  
+  // Whether or not to try to connect to websockets, it connects by default
+  disableWebsockets: false,
+
+  // Whether to pass `meteor-login-token` as header read from localStorage
+  disableMeteorAccounts: false,
+
+  // Here you can concatenated stuff to your links and perform whatever operations you prefer
+  getLink: link => newLink 
 });
 ```
 
